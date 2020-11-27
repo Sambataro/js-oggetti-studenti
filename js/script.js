@@ -46,18 +46,51 @@ $(document).ready (
 
 
     // Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
+    // creo array di dati studente
+    var studente = [
+      {nome: "Fortunato",
+       cognome: "Sambataro",
+       eta: 27,
+      },
+    ];
 
+    // creo prompt con ciclo e  switch e un oggetto vuoto dove inserire i datiUtente
+    var datoRichiesto = "";
+    var inputUtente;
+    var datiUtente = {};
 
-    var dati = [];
-    var studente = {
-    nome: "Fortunato",
-    cognome: "Sambataro",
-    eta: 27,
-    };
+    for(var i = 0; i < 3; i++) {
 
-    for (var key in studente) {
-      ;
-    };
+      switch (i) {
+        case 0:
+         datoRichiesto = "età";
+         inputUtente = "eta";
+         break;
+
+         case 1:
+           datoRichiesto = "cognome";
+           inputUtente = "cognome";
+           break;
+
+        case 2:
+          datoRichiesto = "nome";
+          inputUtente = "nome";
+          break;
+      }
+
+      if(i == 0) {
+        var dato = parseInt(prompt("Quale è la tua" + datoRichiesto + "?"));
+      } else {
+        var dato = prompt("Quale è il tuo " + datoRichiesto + "?");
+      }
+
+      datiUtente[inputUtente] = dato;
+    }
+    // pusho i datiUtente nell'array studente
+    studente.push(datiUtente);
+    console.log(datiUtente);
+
+    console.log(studente);
 
 
 
